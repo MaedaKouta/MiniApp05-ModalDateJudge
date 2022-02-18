@@ -9,11 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet private weak var textField: UITextField!
+
+    @IBAction func didTapJudgeButton(_ sender: Any) {
+        guard let number = Int(textField.text ?? "") else {
+            return
+        }
+
+        if number % 5 == 0 {
+            self.performSegue(withIdentifier: "Success", sender: sender)
+        } else {
+            self.performSegue(withIdentifier: "Failure", sender: sender)
+        }
     }
 
-
+    @IBAction func exit(segue: UIStoryboardSegue){
+    }
 }
 

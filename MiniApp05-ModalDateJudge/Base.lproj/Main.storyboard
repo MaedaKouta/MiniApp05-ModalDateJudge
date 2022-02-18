@@ -1,24 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniApp05_ModalDateJudge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="vRd-2M-dqg">
+                                <rect key="frame" x="50" y="144" width="314" height="172"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZI1-0H-OuN">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSm-eU-Zhe">
+                                        <rect key="frame" x="0.0" y="134" width="314" height="38"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="５の倍数か判定">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTapJudgeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lzc-cj-a1P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vRd-2M-dqg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="47E-6c-cW2"/>
+                            <constraint firstItem="vRd-2M-dqg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="K7g-IP-fU9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vRd-2M-dqg" secondAttribute="trailing" constant="50" id="Laz-dT-7ID"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="ZI1-0H-OuN" id="ROm-W9-Ghn"/>
+                        <segue destination="FFF-sE-3SB" kind="presentation" identifier="Success" id="umm-Sl-anS"/>
+                        <segue destination="pJV-MO-gzb" kind="presentation" identifier="Failure" id="dey-y8-q3Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-149.27536231884059" y="37.5"/>
+        </scene>
+        <!--Failure View Controller-->
+        <scene sceneID="Rur-oz-aVq">
+            <objects>
+                <viewController id="zbo-0r-cqo" customClass="FailureViewController" customModule="MiniApp05_ModalDateJudge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGS-mR-CBn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="５の倍数でない" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejP-WA-vVs">
+                                <rect key="frame" x="104.5" y="156" width="205.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ifp-LW-h6P"/>
+                        <color key="backgroundColor" red="1" green="0.74994947765084263" blue="0.74969348389748247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ejP-WA-vVs" firstAttribute="top" secondItem="Ifp-LW-h6P" secondAttribute="top" constant="100" id="EfR-5Z-1rK"/>
+                            <constraint firstItem="ejP-WA-vVs" firstAttribute="centerX" secondItem="dGS-mR-CBn" secondAttribute="centerX" id="yai-eV-EfZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3MA-ST-ix3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="DJC-B4-zkO">
+                            <connections>
+                                <segue destination="IjM-kh-3Cb" kind="unwind" unwindAction="exitWithSegue:" id="qGI-JN-z6e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ZP-SL-bCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="IjM-kh-3Cb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1679.7101449275362" y="450"/>
+        </scene>
+        <!--Success View Controller-->
+        <scene sceneID="ccc-Ku-3SX">
+            <objects>
+                <viewController id="zlx-Qz-T6B" customClass="SuccessViewController" customModule="MiniApp05_ModalDateJudge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cA8-6i-eE6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="５の倍数" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgL-Xb-ufI">
+                                <rect key="frame" x="148.5" y="156" width="117.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1h6-aK-pxp"/>
+                        <color key="backgroundColor" red="0.53090819320707694" green="0.98196585784005619" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zgL-Xb-ufI" firstAttribute="centerX" secondItem="cA8-6i-eE6" secondAttribute="centerX" id="hGz-4c-oJ3"/>
+                            <constraint firstItem="zgL-Xb-ufI" firstAttribute="top" secondItem="1h6-aK-pxp" secondAttribute="top" constant="100" id="jlw-Nu-azc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RuG-Cb-F40">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="a3q-Tb-383">
+                            <connections>
+                                <segue destination="ycN-T7-SVu" kind="unwind" unwindAction="exitWithSegue:" id="zl3-HO-wEk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lQ-Fy-bwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ycN-T7-SVu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1679.7101449275362" y="-281.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zah-gj-9eT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FFF-sE-3SB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zji-sh-yLR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zlx-Qz-T6B" kind="relationship" relationship="rootViewController" id="a8u-iY-vf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hAS-Sv-zEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769.56521739130437" y="-281.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o5D-Tn-c0X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pJV-MO-gzb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwu-9N-H2j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zbo-0r-cqo" kind="relationship" relationship="rootViewController" id="2Ta-VP-Twg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6s-OD-SB5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769.56521739130437" y="450"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
